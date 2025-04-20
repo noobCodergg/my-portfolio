@@ -34,7 +34,7 @@ export const login = async (req, res) => {
     // Set token as a cookie in the response
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: true,
       sameSite: 'None', // ❗ Required for Netlify ↔ Render
       maxAge: 3600 * 1000,
     });
@@ -76,7 +76,7 @@ export const logout = (req, res) => {
   // Clear the token from cookies
   res.clearCookie('token', {
     httpOnly: true,
-    secure:  process.env.NODE_ENV === 'production',
+    secure:  true,
     sameSite: 'None',
   });
   
