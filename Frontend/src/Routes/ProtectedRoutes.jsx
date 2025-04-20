@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
   useEffect(() => {
     const verifyToken = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/admin/verify", {
+        const res = await axios.get("https://my-portfolio-bapt.onrender.com/api/admin/verify", {
           withCredentials: true, // send cookies
         });
         if (res.status === 200) {
