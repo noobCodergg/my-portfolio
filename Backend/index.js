@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 
 // ✅ CORS configuration
 app.use(cors({
-  origin: 'https://starlit-seahorse-ff95b5.netlify.app/',
+  origin: 'https://gregarious-druid-0599ff.netlify.app/',
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
 }));
