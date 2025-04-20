@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("./config/db");
+const connectDB = require("./Config/db");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser"); // Import cookie-parser
 const prizeRoute = require("./Routes/prizeRoute");
