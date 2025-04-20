@@ -25,10 +25,12 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 
 // ✅ CORS configuration
 app.use(cors({
-  origin: '*', // ✅ no slash at the end!
-  methods: ["POST", "GET", "PUT", "DELETE"],
+  origin: function (origin, callback) {
+    callback(null, origin); // 👈 Reflects the request origin
+  },
   credentials: true,
 }));
+
 
 
 // ✅ Basic route
