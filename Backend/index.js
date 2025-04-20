@@ -25,11 +25,17 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 
 // ✅ CORS configuration
 app.use(cors({
-  origin: function (origin, callback) {
-    callback(null, origin); // 👈 Reflects the request origin
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like Postman) or from Netlify
+    if (!origin || origin.includes("netlify.app")) {
+      callback(null, origin);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
   },
   credentials: true,
 }));
+
 
 
 
