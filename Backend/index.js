@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 app.use(cors({
   origin: (origin, callback) => {
     // Allow requests from both the Netlify frontend and the Render backend
-    if (origin === 'https://marvelous-malabi-1cbcb7.netlify.app' || origin === 'https://my-portfolio-bapt.onrender.com') {
+    if (origin === 'https://lucent-mermaid-9fab26.netlify.app/' || origin === 'https://my-portfolio-bapt.onrender.com') {
       callback(null, origin); // Allow the origin
     } else {
       callback(new Error('Not allowed by CORS')); // Reject other origins

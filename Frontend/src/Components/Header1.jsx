@@ -37,7 +37,7 @@ const Header1 = () => {
          viewport={{once:true}}
          className='text-gray-600 text-sm  flex items-center justify-center text-center leading-[2]'
         >
-          Business consulting consultants provide expert advice and guida businesses to help  them  improve their <br/> performance, efficiency, and organizational
+          MERN Stack Developer.  <br/> performance, efficiency, and organizational excellence!
         </motion.p>
 
 
