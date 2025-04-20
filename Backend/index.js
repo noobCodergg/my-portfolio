@@ -25,10 +25,11 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 
 // ✅ CORS configuration
 app.use(cors({
-  origin: 'https://gregarious-druid-0599ff.netlify.app/',
+  origin: 'https://gregarious-druid-0599ff.netlify.app', // ✅ no slash at the end!
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
 }));
+
 
 // ✅ Basic route
 app.get('/', (req, res) => {
