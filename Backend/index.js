@@ -23,18 +23,22 @@ app.use(cookieParser()); // Add this line to parse cookies
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 
-// ✅ CORS configuration
+const allowedOrigins = [
+  "https://marvelous-malabi-1cbcb7.netlify.app",
+  "http://localhost:3000" // if testing locally
+];
+
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (like Postman) or from Netlify
-    if (!origin || origin.includes("netlify.app")) {
-      callback(null, origin);
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
 }));
+
 
 
 
