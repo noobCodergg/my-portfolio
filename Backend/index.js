@@ -25,10 +25,17 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 
 // ✅ CORS configuration
 app.use(cors({
-  origin: 'https://my-portfolio-bapt.onrender.com', // ✅ no slash at the end!
-  methods: ["POST", "GET", "PUT", "DELETE"],
-  credentials: true,
+  origin: (origin, callback) => {
+    // Allow requests from both the Netlify frontend and the Render backend
+    if (origin === 'https://marvelous-malabi-1cbcb7.netlify.app' || origin === 'https://my-portfolio-bapt.onrender.com') {
+      callback(null, origin); // Allow the origin
+    } else {
+      callback(new Error('Not allowed by CORS')); // Reject other origins
+    }
+  },
+  credentials: true, // Allow cookies to be sent with requests
 }));
+
 
 
 // ✅ Basic route
