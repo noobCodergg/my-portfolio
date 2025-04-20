@@ -23,24 +23,12 @@ app.use(cookieParser()); // Add this line to parse cookies
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 
-const allowedOrigins = [
-  "https://marvelous-malabi-1cbcb7.netlify.app",
-  "http://localhost:3000" // if testing locally
-];
-
+// ✅ CORS configuration
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: 'https://my-portfolio-bapt.onrender.com', // ✅ no slash at the end!
+  methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
 }));
-
-
-
 
 
 // ✅ Basic route
